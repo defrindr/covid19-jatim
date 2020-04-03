@@ -76,7 +76,7 @@ class Covid19 {
 	}
 
 
-	public function zone($zone){
+	public function getZone($zone){
 		if(gettype($zone) == "string"){
 			return $this->matchWithString($zone);
 		}else{
