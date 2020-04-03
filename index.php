@@ -17,8 +17,8 @@ $res = new Covid19();
 print_r($res->getData());
 
 // get specific data from location name
-// print_r($res->zone("ponorogo"));
-// print_r($res->zone("madiun"));
+print_r($res->getZone("ponorogo"));
+print_r($res->getZone("madiun"));
 
 
 // get total odp in east java
