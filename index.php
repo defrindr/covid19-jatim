@@ -4,15 +4,17 @@ include 'src/covid.php';
 
 
 
-$res = new Covid19();
+$res = new Covid19;
 
 /**get all data
 [
-	kota,
-	odp,
-	pdp,
-	confirm.
-	update time
+	// KAB/KOTA
+    // ODR
+    // OTG
+    // ODP
+    // PDP
+    // CONFIRM
+    // DATA TERAKHIR
 ]**/
 print_r($res->getData());
 

@@ -45,70 +45,6 @@ class Covid19 {
 
 		curl_close($curl);
 
-		preg_match_all("/<tr>\s.+[\s].+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<\/tr>/", $sources, $res);
-
-		$data = [];
-
-		for(
-			$i = 0;
-			$i < count($res[0]);
-			$i++
-		){
-
-			array_push($data,[
-				$res[1][$i],
-				$res[2][$i],
-				$res[3][$i],
-				$res[4][$i],
-				$res[5][$i]
-			]);
-<?php
-
-/**
- *
- * Defri Indra M
- * 03 April 2020
- * 
- */
-class Covid19 {
-	protected $url = "https://covid19dev.jatimprov.go.id/xweb/draxi";
-	protected $data = [];
-
-	protected $totalODP = 0;
-	protected $totalPDP = 0;
-	protected $totalConfirm = 0;
-
-	function __construct(){
-		$this->data = $this->request();
-	}
-
-	function request(){
-		$curl = curl_init();
-
-		$header = [
-			"Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-			"Accept-Encoding" =>  "gzip, deflate, br",
-			"Accept-Language" => "en-GB,en-US;q=0.9,en;q=0.8,id;q=0.7",
-			"Cache-Control" => "no-cache",
-			"Connection" => "keep-alive",
-			"Host" => $this->url,
-			"Pragma" => "no-cache",
-			"Sec-Fetch-Dest" => "document",
-			"Sec-Fetch-Mode" => "navigate",
-			"Sec-Fetch-Site" => "none",
-			"Sec-Fetch-User" => "?1",
-			"Upgrade-Insecure-Requests" => "1",
-			"User-Agent" => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36",
-		];
-
-		curl_setopt($curl, CURLOPT_URL, $this->url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($curl, CURLOPT_HEADER, $header);
-
-		$sources = curl_exec($curl);
-
-		curl_close($curl);
-
 		$regexBody = "/<tr.*?>\s.+[\s].+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<td>(.+)<\/td>\s.+<\/tr>/";
 		preg_match_all($regexBody, $sources, $res);
 
@@ -122,13 +58,6 @@ class Covid19 {
 			$i < count($res[0]);
 			$i++
 		){
-			// KAB/KOTA
-            // ODR
-            // OTG
-            // ODP
-            // PDP
-            // CONFIRM
-            // DATA TERAKHIR
 			array_push($data,[
 				"KAB/KOTA" => $res[1][$i],
 				"ODR" => $res[2][$i],
@@ -201,3 +130,10 @@ class Covid19 {
 		return $this->totalConfirm;
 	}
 }
+
+// $res = new Covid19;
+
+
+// print_r($res->getZone("ponorogo"));
+
+
