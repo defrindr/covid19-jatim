@@ -20,12 +20,19 @@ $covid->getData();
 
 | Name        | Params           | Desc  |
 | ------------- |-------------| -----|
-| getData      | null | return all data |
+| getAllData      | null | return all data |
 | getZone      | string / array      |   return all data from specific zone |
-| getTotalODP | null      |    return total ODP case |
-| getTotalPDP | null      |    return total PDP case |
-| getTotalConfirm | null      |    return total confirm positif case |
+| get | null      |    return total case in indonesian |
+| get | string      |    return variable data |
 
+
+## variable
+
+| Name | Desc|
+| ---------- | -------- |
+| $totalPositif  | return  count  of positif case |
+| $totalSembuh | return  count  of recovered case |
+| $totalMeninggal | return  count  of death case |
 
 ## Contribute
 
