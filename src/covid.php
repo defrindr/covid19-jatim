@@ -19,18 +19,14 @@ class Covid19 {
 	}
 
 	function request(){
-		
 		$sources = json_decode(file_get_contents($this->url));
 		$sources2 = json_decode(file_get_contents(preg_replace("/jatim/","province/jawa%20timur",$this->url)));
 		
 		$data = $sources->data;
-		$data2 = $sources2->data;
-
-		foreach($data2 as $row){
-			$this->totalPositif = $row->kasus_positif;
-			$this->totalSembuh = $row->kasus_sembuh;
-			$this->totalMeninggal = $row->kasus_meninggal;
-		}
+		$data2 = $sources2->data[0];
+		$this->totalPositif = $data2->kasus_positif;
+		$this->totalSembuh = $data2->kasus_sembuh;
+		$this->totalMeninggal = $data2->kasus_meninggal;
 		
 		return $data;
 	}
@@ -94,11 +90,23 @@ class Covid19 {
 
 		return $ret;
 	}
+
+	public function __get($var){
+		switch ($var) {
+			case 'totalPositif':
+				return $this->totalPositif;
+				break;
+			case 'totalSembuh':
+				return $this->totalSembuh;
+				break;
+			case 'totalMeninggal':
+				return $this->totalMeninggal;
+				break;
+			default:
+				return "Data not found";
+				break;
+		}
+	}
+
 }
-
-// $res = new Covid19;
-
-
-// print_r($res->getZone("ponorogo"));
-
 

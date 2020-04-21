@@ -2,20 +2,30 @@
 
 include 'src/covid.php';
 
-$crona = new Covid19();
+
+$res = new Covid19;
+
+/**get all data
+[
+	// KAB/KOTA
+    // ODR
+    // OTG
+    // ODP
+    // PDP
+    // CONFIRM
+    // DATA TERAKHIR
+]**/
+// print_r($res->getAllZone());
+
+// get specific data from location name
+// print_r($res->getZone("ponorogo"));
+// print_r($res->getZone("madiun"));
 
 
-if(isset($_GET['location'])){
-	echo "<pre>";
-    echo json_encode($crona->getZone($_GET['location']), JSON_PRETTY_PRINT);
-    echo "</pre>";
-}else if(isset($_GET['alllocation'])){
-	echo "<pre>";
-    echo json_encode($crona->getAllZone(), JSON_PRETTY_PRINT);
-    echo "</pre>";
-}else{
-	echo "<pre>";
-    echo json_encode($crona->get(), JSON_PRETTY_PRINT);
-	echo "</pre>";
-}
+// get total odp in east java
+print($res->totalSembuh . "\n");
+// get total pdp in east java
+print($res->totalMeninggal . "\n");
+// get total Confirm in east java
+print($res->totalPositif . "\n");
 

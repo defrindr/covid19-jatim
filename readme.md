@@ -13,17 +13,17 @@ eg:
 ```
 $covid = new Covid19;
 
-$covid->getData();
+$covid->getAllData();
 ```
 
 ## Function
 
 | Name        | Params           | Desc  |
 | ------------- |-------------| -----|
-| getAllData      | null | return all data |
+| getAllZone      | null | return all data |
 | getZone      | string / array      |   return all data from specific zone |
 | get | null      |    return total case in indonesian |
-| get | string      |    return variable data |
+
 
 
 ## variable
