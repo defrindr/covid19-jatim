@@ -3,7 +3,7 @@
 ## Information
 Sebuah tool yang dibuat untuk mendapatkan data persebaran covid terbaru di Jawa Timur 
 ```
-https://covid19dev.jatimprov.go.id/xweb/draxi
+https://literasistmj.000webhostapp.com
 ```
 
 ## Usage
