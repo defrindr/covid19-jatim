@@ -7,7 +7,7 @@
  * 
  */
 class Covid19 {
-	protected $url = "https://literasistmj.000webhostapp.com/jatim";
+	protected $url = "https://api.covid.defrindr.my.id/jatim";
 	protected $data = [];
 
 	protected $totalPositif = 0;
