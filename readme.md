@@ -3,7 +3,7 @@
 ## Information
 Sebuah tool yang dibuat untuk mendapatkan data persebaran covid terbaru di Jawa Timur 
 ```
-https://api.covid.defrindr.my.id
+https://api.covid.defrindr.my.id/jatim
 ```
 
 ## Usage
